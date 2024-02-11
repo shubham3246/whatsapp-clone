@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "https://whatsapp-clone-iota-self.vercel.app/"
+const url = "https://whatsapp-clone-iota-self.vercel.app"
 
 const addUser = async (data)=> {
     try{
