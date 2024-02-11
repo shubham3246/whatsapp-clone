@@ -12,12 +12,6 @@ Connection();
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors(
-  {
-    origin: ["https://whatsapp-clone-rouge.vercel.app", "http://localhost:3000", "*"],
-    methods: ["POST", "GET"],
-    credentials: true
-  }
-));
+app.use(cors());
 app.use('/', Routes);
 
