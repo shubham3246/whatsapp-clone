@@ -1,0 +1,13 @@
+{
+    "routes": [
+      {
+        "src": "/socket",
+        "dest": "https://whatsapp-clone-rouge.vercel.app"  
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
+  
