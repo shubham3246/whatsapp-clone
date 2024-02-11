@@ -2,12 +2,12 @@ import { useContext, useEffect, useState } from 'react';
 
 import { styled, Box, Typography } from "@mui/material";
 
-// import { UserContext } from '../../../context/UserProvider';
+import { UserContext } from '../../../context/UserProvider';
 import { AccountContext } from '../../../context/AccountProvider';
 
-// import { setConversation, getConversation } from '../../../service/api';
+import { setConversation, getConversation } from '../../../service/api';
 import { emptyProfilePicture } from '../../../constants/data';
-// import { formatDate } from '../../../utils/common-utils';
+import { formatDate } from '../../../utils/common-utils';
 
 const Component = styled(Box)`
     height: 45px;
@@ -43,39 +43,40 @@ const Text = styled(Typography)`
 
 const Conversation = ({ user }) => {
     const url = user.picture || emptyProfilePicture;
-    const { setPerson, person } = useContext(AccountContext);
-    // const { account, newMessageFlag }  = useContext(AccountContext);
+    
+    const { setPerson } = useContext(UserContext);
+    const { account, newMessageFlag }  = useContext(AccountContext);
 
-    // const [message, setMessage] = useState({});
+    const [message, setMessage] = useState({});
 
-    // useEffect(() => {
-    //     const getConversationMessage = async() => {
-    //         const data = await getConversation({ senderId: account.sub, receiverId: user.sub });
-    //         setMessage({ text: data?.message, timestamp: data?.updatedAt });
-    //     }
-    //     getConversationMessage();
-    // }, [newMessageFlag]);
+    useEffect(() => {
+        const getConversationMessage = async() => {
+            const data = await getConversation({ senderId: account.sub, receiverId: user.sub });
+            setMessage({ text: data?.message, timestamp: data?.updatedAt });
+        }
+        getConversationMessage();
+    }, [newMessageFlag]);
 
-    // const getUser = async () => {
-    //     setPerson(user);
-    //     await setConversation({ senderId: account.sub, receiverId: user.sub });
-    // }
+    const getUser = async () => {
+        setPerson(user);
+        await setConversation({ senderId: account.sub, receiverId: user.sub });
+    }
 
     return (
-        <Component onClick={() => {setPerson(user);}}>
+        <Component onClick={() => getUser()}>
             <Box>
                 <Image src={url} alt="display picture" />
             </Box>
             <Box style={{width: '100%'}}>
                 <Container>
                     <Typography>{user.name}</Typography>
-                    {/* { 
+                    { 
                         message?.text && 
                         <Timestamp>{formatDate(message?.timestamp)}</Timestamp>        
-                    } */}
+                    }
                 </Container>
                 <Box>
-                    {/* <Text>{message?.text?.includes('localhost') ? 'media' : message.text}</Text> */}
+                    <Text>{message?.text?.includes('localhost') ? 'media' : message.text}</Text>
                 </Box>
             </Box>
         </Component>

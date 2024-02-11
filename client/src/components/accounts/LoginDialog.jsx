@@ -1,12 +1,12 @@
-import {useContext} from 'react'
+import { useContext } from 'react'
 import { GoogleLogin } from '@react-oauth/google';
-import { Dialog, Typography, List, ListItem, Box, styled} from '@mui/material';
+import { Dialog, Typography, List, ListItem, Box, styled } from '@mui/material';
 import { MoreVert } from '@mui/icons-material';
 import { jwtDecode } from 'jwt-decode';
 
 import { qrCodeImage } from '../../constants/data';
-import {AccountContext} from '../../context/AccountProvider';
-import {addUser} from '../../service/api.js'; 
+import { AccountContext } from '../../context/AccountProvider';
+import { addUser } from '../../service/api.js'; 
 
 const dialogStyle = {
     height: '90%',

@@ -26,7 +26,7 @@ const Wrapper = styled(Box) `
     & > * {
         margin-left: 2px;
         padding: 8px;
-        color: #000;r
+        color: #000;
     };
     & :first-child {
         font-size: 22px;

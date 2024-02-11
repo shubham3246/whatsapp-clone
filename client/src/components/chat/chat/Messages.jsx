@@ -1,26 +1,27 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import { Box, styled } from '@mui/material';
 
-import { io } from 'socket.io-client';
+// import { io } from 'socket.io-client';
 
 import { getMessages, newMessages } from '../../../service/api';
 import { AccountContext } from '../../../context/AccountProvider';
+import { backgroundImage } from '../../../constants/data'; 
 
 //components
 import Message from './Message';
 import Footer from './Footer';
 
 const Wrapper = styled(Box)`
-    background-image: url(${'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'});
+    background-image: url(${backgroundImage});
     background-size: 50%;
 `;
 
 const StyledFooter = styled(Box)`
     height: 55px;
     background: #ededed;
-    // position: absolute;
+    position: absolute;
     width: 100%;
-    // bottom: 0
+    bottom: 0
 `;
     
 const Component = styled(Box)`

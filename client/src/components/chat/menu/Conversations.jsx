@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react';
-
 import { Box, styled, Divider } from '@mui/material';
 
 import { AccountContext } from '../../../context/AccountProvider';
@@ -27,18 +26,18 @@ const Conversations = ({ text }) => {
     useEffect(() => {
         const fetchData = async () => {
             let data = await getUsers();
-            let fiteredData = data.filter(user => user.name.toLowerCase().includes(text.toLowerCase()));
+            let fiteredData = data?.filter(user => user.name.toLowerCase().includes(text.toLowerCase()));
             setUsers(fiteredData);
         }
         fetchData();
     }, [text]);
 
-    // useEffect(() => {
-    //     socket.current.emit('addUser', account);
-    //     socket.current.on("getUsers", users => {
-    //         setActiveUsers(users);
-    //     })
-    // }, [account])
+    useEffect(() => {
+        socket.current.emit('addUser', account);
+        socket.current.on("getUsers", users => {
+            setActiveUsers(users);
+        });
+    }, [account])
 
     return (
         <Component>

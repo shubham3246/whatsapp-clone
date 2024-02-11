@@ -11,6 +11,8 @@ const Header = styled(Box)`
     display: flex;
     padding: 8px 16px;
     align-items: center;
+    // position: relative;
+    // top:22px;
 `;
     
 const Image = styled('img')({
@@ -44,6 +46,7 @@ const ChatHeader = ({ person }) => {
     const url = person.picture || defaultProfilePicture;
     
     const { activeUsers } = useContext(AccountContext);
+
 
     return (
         <Header>

@@ -91,7 +91,7 @@ const ImageMessage = ({ message }) => {
             }
             <Time style={{ position: 'absolute', bottom: 0, right: 0 }}>
                 <GetAppIcon 
-                    onClick={(e) => downloadMedia(e, message.text)} 
+                    onClick={(e) => {}} 
                     fontSize='small' 
                     style={{ marginRight: 10, border: '1px solid grey', borderRadius: '50%' }} 
                 />

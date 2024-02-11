@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { EmojiEmotions, AttachFile, Mic } from '@mui/icons-material';
 import { Box, styled, InputBase } from '@mui/material';
 
-import { uploadFile } from '../../../service/api';
+// import { uploadFile } from '../../../service/api';
 
 const Container = styled(Box)`
     height: 55px;
@@ -46,8 +46,8 @@ const Footer = ({ sendText, value, setValue, setFile, file, setImage }) => {
                 data.append("name", file.name);
                 data.append("file", file);
 
-                const response = await uploadFile(data);
-                setImage(response.data);
+                // const response = await uploadFile(data);
+                // setImage(response.data);
             }
         }
         getImage();
@@ -76,7 +76,7 @@ const Footer = ({ sendText, value, setValue, setFile, file, setImage }) => {
                     placeholder="Type a message"
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={(e) => setValue(e.target.value)}
-                    onKeyPress={(e) => sendText(e)}
+                    onKeyDown={(e) => sendText(e)}
                     value={value}
                 />
             </Search>

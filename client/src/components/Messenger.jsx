@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext } from 'react';
 import { AppBar, Toolbar, styled, Box } from '@mui/material';
+
 import { AccountContext } from '../context/AccountProvider';
 
 import LoginDialog from './accounts/LoginDialog';

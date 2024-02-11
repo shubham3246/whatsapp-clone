@@ -1,9 +1,9 @@
 import { useContext, useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 
-// import { UserContext } from '../../../context/UserProvider';
+import { UserContext } from '../../../context/UserProvider';
 import { AccountContext } from '../../../context/AccountProvider';
-// import { getConversation } from '../../../service/api';
+import { getConversation } from '../../../service/api';
 
 //components
 import ChatHeader from './ChatHeader';
@@ -24,7 +24,7 @@ const ChatBox = () => {
     }, [person.sub]);
 
     return (
-        <Box style={{height: '75%'}}>
+        <Box style={{height: '100%'}}>
             <ChatHeader person={person} />
             <Messages person={person} conversation={conversation} />
         </Box>
