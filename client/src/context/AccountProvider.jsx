@@ -17,7 +17,7 @@ const AccountProvider = ({children}) => {
 
     useEffect(() => {
         console.log("going to glitch");
-        socket.current = io('ws://localhost:5000');
+        socket.current = io('wss://whatsapp-clone-backend-zeta.vercel.app');
         console.log("returning from glitch");
     }, [])
 
