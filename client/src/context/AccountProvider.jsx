@@ -16,7 +16,9 @@ const AccountProvider = ({children}) => {
     const socket = useRef();
 
     useEffect(() => {
-        socket.current = io('ws://localhost:9000');
+        console.log("going to glitch");
+        socket.current = io('ws://localhost:5000');
+        console.log("returning from glitch");
     }, [])
 
     return (
