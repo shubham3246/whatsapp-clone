@@ -10,7 +10,9 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors:{
-    origin: "*"
+    origin: "*",
+    methods: ["POST", "GET"],
+    credentials: true
   }
 });
 
@@ -48,6 +50,7 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
   origin: '*',
+  methods: ["POST", "GET"],
   credentials: true,
 }));
 app.use('/', Routes);
