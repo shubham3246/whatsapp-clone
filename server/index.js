@@ -10,7 +10,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors:{
-    origin: "http://localhost:3000",
+    origin: "https://whatsapp-clone-shubham3246.vercel.app",
     methods: ["POST", "GET"],
     credentials: true
   }
